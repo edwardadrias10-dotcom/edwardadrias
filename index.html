@@ -1,779 +1,1038 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edward Adrias | Customer Support & Data Specialist</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-primary: #F5F1ED;
-            --bg-secondary: #E8E2DC;
-            --text-primary: #2C2420;
-            --text-secondary: #6B5E55;
-            --accent: #8B6F5C;
-            --accent-light: #A88B78;
-            --white: #FFFFFF;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(245, 241, 237, 0.9);
-            backdrop-filter: blur(10px);
-            transition: var(--transition);
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 0 5%;
-            padding-top: 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 5vw, 4.5rem);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-        }
-
-        .hero-text .subtitle {
-            font-size: 1.25rem;
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .hero-text p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 500px;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .cta-group {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 500;
-            transition: var(--transition);
-            display: inline-block;
-            font-size: 0.95rem;
-        }
-
-        .btn-primary {
-            background: var(--text-primary);
-            color: var(--white);
-            border: 2px solid var(--text-primary);
-        }
-
-        .btn-primary:hover {
-            background: transparent;
-            color: var(--text-primary);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 2px solid var(--text-secondary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--text-secondary);
-            color: var(--white);
-            transform: translateY(-2px);
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 450px;
-            height: auto;
-            border-radius: 20px;
-            object-fit: cover;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            transition: var(--transition);
-        }
-
-        .hero-image:hover img {
-            transform: scale(1.02);
-        }
-
-        .experience-badge {
-            position: absolute;
-            bottom: -20px;
-            left: -20px;
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .experience-badge .number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--accent);
-            display: block;
-            line-height: 1;
-        }
-
-        .experience-badge .label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Sections General */
-        section {
-            padding: 6rem 5%;
-        }
-
-        .section-header {
-            max-width: 800px;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .section-header p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--white);
-        }
-
-        .about-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            line-height: 1.9;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .highlight {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .skill-card {
-            background: var(--bg-primary);
-            padding: 1.5rem;
-            border-radius: 12px;
-            transition: var(--transition);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .skill-card h4 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .skill-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        /* Experience Section */
-        .experience {
-            background: var(--bg-primary);
-        }
-
-        .timeline {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: var(--bg-secondary);
-        }
-
-        .timeline-item {
-            display: flex;
-            justify-content: flex-end;
-            padding-right: 50%;
-            position: relative;
-            margin-bottom: 3rem;
-        }
-
-        .timeline-item:nth-child(even) {
-            justify-content: flex-start;
-            padding-right: 0;
-            padding-left: 50%;
-        }
-
-        .timeline-content {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            max-width: 400px;
-            margin-right: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-right: 0;
-            margin-left: 2rem;
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-
-        .timeline-dot {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--accent);
-            border-radius: 50%;
-            top: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 4px solid var(--bg-primary);
-        }
-
-        .timeline-date {
-            font-size: 0.85rem;
-            color: var(--accent);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .timeline-content .company {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .timeline-content p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--text-primary);
-            color: var(--white);
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1.5rem;
-        }
-
-        .contact > p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-        }
-
-        .contact-card {
-            background: rgba(255,255,255,0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            transition: var(--transition);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .contact-card:hover {
-            background: rgba(255,255,255,0.1);
-            transform: translateY(-5px);
-        }
-
-        .contact-card .icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .contact-card a {
-            color: var(--accent-light);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-
-        .contact-card a:hover {
-            color: var(--white);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            width: 50px;
-            height: 50px;
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 1.2rem;
-        }
-
-        .social-links a:hover {
-            background: var(--white);
-            color: var(--text-primary);
-            transform: translateY(-3px);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-primary);
-            color: rgba(255,255,255,0.6);
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 2rem;
-            }
-
-            .hero-text p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-image {
-                order: -1;
-            }
-
-            .hero-image img {
-                max-width: 300px;
-                margin: 0 auto;
-                display: block;
-            }
-
-            .experience-badge {
-                left: 50%;
-                transform: translateX(-50%);
-                bottom: -10px;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline::before {
-                left: 30px;
-            }
-
-            .timeline-item,
-            .timeline-item:nth-child(even) {
-                justify-content: flex-start;
-                padding-left: 80px;
-                padding-right: 0;
-            }
-
-            .timeline-content,
-            .timeline-item:nth-child(even) .timeline-content {
-                margin-left: 0;
-                margin-right: 0;
-                max-width: 100%;
-            }
-
-            .timeline-dot {
-                left: 30px;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 4rem 5%;
-            }
-        }
-
-        /* Fade in animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edward Adrias | Customer Support & Data Specialist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:    #0f2240;
+      --navy2:   #1b3a6b;
+      --blue:    #2563b0;
+      --sky:     #4fa3e0;
+      --teal:    #0e9a8e;
+      --cream:   #f7f4ef;
+      --warm:    #ede8e0;
+      --text:    #1a1a2e;
+      --muted:   #5a6072;
+      --white:   #ffffff;
+      --card-bg: #ffffff;
+      --border:  #dde3ee;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+      background: rgba(15,34,64,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem; color: var(--white); letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em;
+      text-transform: uppercase; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--sky); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 100px 8% 60px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 60%, #1e4d82 100%);
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(79,163,224,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    /* decorative dots grid */
+    #hero::after {
+      content: '';
+      position: absolute; right: 0; top: 0;
+      width: 50%; height: 100%;
+      background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+    .hero-text { position: relative; z-index: 2; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--sky);
+      background: rgba(79,163,224,0.12);
+      border: 1px solid rgba(79,163,224,0.3);
+      padding: 4px 14px; border-radius: 100px;
+      margin-bottom: 1.4rem;
+      opacity: 0; animation: fadeUp 0.7s 0.2s forwards;
+    }
+    .hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      line-height: 1.15; color: var(--white);
+      margin-bottom: 1.4rem;
+      opacity: 0; animation: fadeUp 0.7s 0.4s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--sky); }
+    .hero-sub {
+      font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.72);
+      max-width: 480px; margin-bottom: 2.2rem;
+      opacity: 0; animation: fadeUp 0.7s 0.6s forwards;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.7s 0.8s forwards;
+    }
+    .btn-primary {
+      padding: 13px 30px; border-radius: 6px;
+      background: var(--teal); color: var(--white);
+      font-weight: 600; font-size: 0.9rem; letter-spacing: 0.03em;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #0bb8aa; transform: translateY(-2px); }
+    .btn-outline {
+      padding: 12px 28px; border-radius: 6px;
+      border: 1.5px solid rgba(255,255,255,0.35); color: var(--white);
+      font-weight: 500; font-size: 0.9rem;
+      text-decoration: none; cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      background: transparent;
+    }
+    .btn-outline:hover { border-color: var(--sky); background: rgba(79,163,224,0.1); transform: translateY(-2px); }
+
+    .hero-visual {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      position: relative; z-index: 2;
+      opacity: 0; animation: fadeIn 1s 0.9s forwards;
+    }
+    .hero-photo-wrap {
+      width: 260px; height: 260px; border-radius: 50%;
+      border: 4px solid rgba(79,163,224,0.4);
+      box-shadow: 0 0 0 12px rgba(79,163,224,0.08), 0 24px 60px rgba(0,0,0,0.35);
+      overflow: hidden; position: relative;
+    }
+    .hero-photo-wrap img {
+      width: 100%; height: 100%; object-fit: cover; object-position: top;
+    }
+    .hero-stat {
+      margin-top: 1.6rem;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 16px 32px; text-align: center;
+      backdrop-filter: blur(8px);
+    }
+    .hero-stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.4rem; color: var(--white); line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.78rem; color: rgba(255,255,255,0.55);
+      letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 90px 8%; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      color: var(--navy); margin-bottom: 1rem; line-height: 1.2;
+    }
+    .section-intro {
+      font-size: 1.05rem; color: var(--muted);
+      line-height: 1.75; max-width: 640px; margin-bottom: 3rem;
+    }
+    .divider {
+      width: 48px; height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--sky));
+      border-radius: 2px; margin-bottom: 1.2rem;
+    }
+
+    /* ── ABOUT / SKILLS ── */
+    #about { background: var(--white); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
+    }
+    .about-body { font-size: 1rem; line-height: 1.85; color: var(--muted); }
+    .about-body p + p { margin-top: 1rem; }
+
+    .skills-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .skill-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.1rem 1.2rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .skill-card:hover { border-color: var(--teal); transform: translateY(-2px); }
+    .skill-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .skill-name { font-weight: 600; font-size: 0.9rem; color: var(--navy); margin-bottom: 0.25rem; }
+    .skill-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+
+    .tools-row {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.8rem;
+    }
+    .tool-badge {
+      font-size: 0.78rem; font-weight: 500;
+      background: var(--navy); color: rgba(255,255,255,0.85);
+      padding: 5px 13px; border-radius: 100px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--cream); }
+    .timeline { position: relative; padding-left: 2px; }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: 0; top: 8px; bottom: 8px; width: 2px;
+      background: linear-gradient(to bottom, var(--teal), var(--sky));
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative; padding-left: 2.4rem; margin-bottom: 3rem;
+    }
+    .timeline-item::before {
+      content: ''; position: absolute;
+      left: -6px; top: 8px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--teal);
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 3px rgba(14,154,142,0.2);
+    }
+    .timeline-period {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+      color: var(--teal); text-transform: uppercase; margin-bottom: 0.4rem;
+    }
+    .timeline-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem; color: var(--navy); margin-bottom: 0.2rem;
+    }
+    .timeline-company {
+      font-size: 0.88rem; font-weight: 600; color: var(--blue);
+      margin-bottom: 0.7rem;
+    }
+    .timeline-desc {
+      font-size: 0.95rem; color: var(--muted); line-height: 1.8; max-width: 600px;
+    }
+
+    /* ── PORTFOLIO ── */
+    #portfolio { background: var(--white); }
+    .portfolio-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.8rem;
+    }
+    .portfolio-card {
+      border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+      background: var(--card-bg);
+      transition: box-shadow 0.25s, transform 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .portfolio-card:hover {
+      box-shadow: 0 12px 40px rgba(15,34,64,0.12);
+      transform: translateY(-4px);
+    }
+    .card-preview {
+      background: var(--navy);
+      height: 200px; position: relative; overflow: hidden;
+      cursor: pointer;
+    }
+    .card-preview iframe {
+      width: 170%; height: 170%;
+      transform: scale(0.59); transform-origin: top left;
+      border: none; pointer-events: none;
+    }
+    .card-preview-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(15,34,64,0.55);
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .card-preview:hover .card-preview-overlay { opacity: 1; }
+    .preview-btn {
+      background: var(--teal); color: var(--white);
+      border: none; border-radius: 6px;
+      padding: 10px 20px; font-size: 0.85rem; font-weight: 600;
+      cursor: pointer; font-family: 'DM Sans', sans-serif;
+    }
+    .card-placeholder {
+      width: 100%; height: 200px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0.6rem;
+    }
+    .card-placeholder-icon { font-size: 2.5rem; }
+    .card-placeholder-text {
+      font-size: 0.8rem; color: rgba(255,255,255,0.55);
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .card-body { padding: 1.4rem 1.5rem 1.6rem; flex: 1; display: flex; flex-direction: column; }
+    .card-tag {
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 0.5rem;
+    }
+    .card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem; color: var(--navy); margin-bottom: 0.5rem; line-height: 1.35;
+    }
+    .card-desc {
+      font-size: 0.88rem; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: 1.2rem;
+    }
+    .card-actions { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+    .card-btn-preview {
+      padding: 9px 18px; border-radius: 6px;
+      background: var(--navy); color: var(--white);
+      font-size: 0.82rem; font-weight: 600; border: none;
+      cursor: pointer; font-family: 'DM Sans', sans-serif;
+      transition: background 0.2s;
+    }
+    .card-btn-preview:hover { background: var(--navy2); }
+
+    /* ── MODAL ── */
+    .modal-backdrop {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(10,20,40,0.82); backdrop-filter: blur(6px);
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal {
+      background: var(--white); border-radius: 16px;
+      width: 100%; max-width: 900px; max-height: 90vh;
+      display: flex; flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+      animation: modalIn 0.3s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.94) translateY(20px); }
+      to   { opacity: 1; transform: scale(1)   translateY(0); }
+    }
+    .modal-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 1.6rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--navy);
+    }
+    .modal-header-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem; color: var(--white);
+    }
+    .modal-close {
+      background: rgba(255,255,255,0.12); border: none;
+      color: var(--white); width: 32px; height: 32px;
+      border-radius: 50%; cursor: pointer; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.22); }
+    .modal-body { flex: 1; overflow: auto; padding: 0; }
+    .modal-report-content {
+      padding: 2.5rem 3rem; font-family: 'DM Sans', sans-serif;
+      max-width: 820px; margin: 0 auto;
+    }
+
+    /* Report styles inside modal */
+    .report-cover {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+      border-radius: 10px; padding: 2.5rem; margin-bottom: 2rem; text-align: center;
+    }
+    .report-cover h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem; color: var(--white); margin-bottom: 0.4rem;
+    }
+    .report-cover p { color: rgba(255,255,255,0.65); font-size: 0.9rem; }
+    .report-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1rem; margin-bottom: 2rem;
+    }
+    .report-stat {
+      background: var(--navy); border-radius: 10px;
+      padding: 1.2rem; text-align: center;
+    }
+    .report-stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem; color: var(--white); display: block;
+    }
+    .report-stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+    .report-section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem; color: var(--navy);
+      border-bottom: 2px solid var(--teal);
+      padding-bottom: 0.5rem; margin: 1.8rem 0 1rem;
+    }
+    .report-body { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+    .report-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin-bottom: 1.5rem; }
+    .report-table th {
+      background: var(--navy); color: var(--white);
+      padding: 10px 12px; text-align: left; font-weight: 600;
+    }
+    .report-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); color: var(--muted); }
+    .report-table tr:nth-child(even) td { background: var(--cream); }
+    .report-table td:first-child { color: var(--navy); font-weight: 600; }
+    .callout {
+      background: #e8f4fd; border-left: 4px solid var(--blue);
+      border-radius: 0 8px 8px 0; padding: 1rem 1.2rem;
+      font-size: 0.88rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.7;
+    }
+    .callout strong { color: var(--navy); }
+    .timeline-pill {
+      display: inline-block; background: var(--navy); color: var(--white);
+      border-radius: 100px; padding: 4px 14px; font-size: 0.78rem;
+      font-weight: 700; margin-bottom: 0.6rem; margin-right: 0.4rem;
+    }
+    .timeline-pill.teal { background: var(--teal); }
+    .timeline-pill.blue { background: var(--blue); }
+    .timeline-pill.gray { background: var(--muted); }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--navy);
+      text-align: center; padding: 90px 8%;
+    }
+    #contact .section-label { color: var(--sky); }
+    #contact .section-title { color: var(--white); margin: 0 auto 1rem; }
+    #contact .divider { margin: 0 auto 1.2rem; }
+    #contact .section-intro { color: rgba(255,255,255,0.6); margin: 0 auto 3rem; }
+    .contact-cards {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+    .contact-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 1.5rem 2rem;
+      min-width: 180px; text-align: center;
+      transition: background 0.2s; text-decoration: none;
+    }
+    .contact-card:hover { background: rgba(255,255,255,0.1); }
+    .contact-card-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
+    .contact-card-label { font-size: 0.7rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.3rem; }
+    .contact-card-value { font-size: 0.88rem; color: rgba(255,255,255,0.85); font-weight: 500; }
+
+    footer {
+      background: #080f1f; padding: 1.4rem 8%;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem; color: rgba(255,255,255,0.3);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      #hero { grid-template-columns: 1fr; padding: 100px 6% 60px; text-align: center; }
+      .hero-text { order: 2; }
+      .hero-visual { order: 1; margin-bottom: 2rem; }
+      .hero-sub { margin: 0 auto 2rem; }
+      .hero-actions { justify-content: center; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 4%; }
+      .nav-links { gap: 1rem; }
+      .modal-report-content { padding: 1.5rem; }
+      .report-stats { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <a href="#" class="logo">Edward Adrias</a>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Edward Adrias</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <span class="subtitle">Hello, I'm Edward</span>
-                <h1>I help people solve problems and make sense of data</h1>
-                <p>With over 7 years in customer support and data curation, I've learned that great service isn't just about fixing issues—it's about making people feel heard and helping them move forward with confidence.</p>
-                <div class="cta-group">
-                    <a href="#contact" class="btn btn-primary">Let's Talk</a>
-                    <a href="#experience" class="btn btn-secondary">See My Journey</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="/mnt/kimi/upload/photo_2026-03-29_09-47-38.jpg" alt="Edward Adrias">
-                <div class="experience-badge">
-                    <span class="number">7+</span>
-                    <span class="label">Years Experience</span>
-                </div>
-            </div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-text">
+    <span class="hero-eyebrow">Customer Support · Data Specialist</span>
+    <h1 class="hero-title">
+      I help people solve problems and <em>make sense of data</em>
+    </h1>
+    <p class="hero-sub">
+      With over 7 years in customer support and data curation, I've learned that great service isn't just about fixing issues — it's about making people feel heard and helping them move forward with confidence.
+    </p>
+    <div class="hero-actions">
+      <a href="#portfolio" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-outline">Let's Talk</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-photo-wrap">
+      <img src="https://edwardadrias10-dotcom.github.io/mnt/kimi/upload/photo_2026-03-29_09-47-38.jpg"
+           alt="Edward Adrias" onerror="this.style.display='none'" />
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">7+</div>
+      <div class="hero-stat-label">Years of Experience</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT + SKILLS -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="section-label">About Me</div>
+      <div class="divider"></div>
+      <h2 class="section-title">Bridging human needs and technical systems</h2>
+      <div class="about-body">
+        <p>I bridge the gap between technical systems and human needs. Whether I'm curating data for healthcare platforms or helping a customer troubleshoot an issue, I bring patience, clarity, and genuine care to every interaction.</p>
+        <p>My journey started in customer service at DISH Network, where I learned the art of turning frustrated callers into loyal customers. That foundation led me to Cognizant, where I managed complex campaigns, and eventually to Veeva Systems as a Data Curator.</p>
+        <p>What drives me? The satisfaction of taking something messy — whether that's a confused customer or a chaotic dataset — and bringing order to it.</p>
+        <p>When I'm not working, you'll find me exploring new tech, enjoying good coffee, or discovering the best local spots in Zamboanga City.</p>
+      </div>
+      <div class="tools-row">
+        <span class="tool-badge">CRM Systems</span>
+        <span class="tool-badge">Microsoft Excel</span>
+        <span class="tool-badge">Salesforce</span>
+        <span class="tool-badge">Veeva Vault</span>
+        <span class="tool-badge">Data Entry</span>
+        <span class="tool-badge">Email Support</span>
+        <span class="tool-badge">Live Chat</span>
+        <span class="tool-badge">Quality Assurance</span>
+        <span class="tool-badge">AI Tools</span>
+      </div>
+    </div>
+    <div>
+      <div class="section-label" style="margin-bottom:0.6rem;">Core Skills</div>
+      <div class="divider"></div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">🎯</div>
+          <div class="skill-name">Customer Care</div>
+          <div class="skill-desc">Multi-channel support across chat, email, and phone. I rebuild confidence, not just fix problems.</div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about fade-in">
-        <div class="section-header">
-            <h2>What I Do Best</h2>
-            <p>I bridge the gap between technical systems and human needs. Whether I'm curating data for healthcare platforms or helping a customer troubleshoot an issue, I bring patience, clarity, and genuine care to every interaction.</p>
+        <div class="skill-card">
+          <div class="skill-icon">📊</div>
+          <div class="skill-name">Data Curation</div>
+          <div class="skill-desc">Maintaining 99%+ accuracy in complex datasets. Details matter, and I catch them.</div>
         </div>
-        
-        <div class="about-content">
-            <div class="about-text">
-                <p>My journey started in customer service at <span class="highlight">DISH Network</span>, where I learned the art of turning frustrated callers into loyal customers. That foundation led me to <span class="highlight">Cognizant</span>, where I managed complex campaigns, and eventually to <span class="highlight">Veeva Systems</span> as a Data Curator.</p>
-                
-                <p>What drives me? The satisfaction of taking something messy—whether that's a confused customer or a chaotic dataset—and bringing order to it. I believe good work speaks for itself, but great work helps others speak for themselves too.</p>
-                
-                <p>When I'm not working, you'll find me exploring new tech, enjoying good coffee, or discovering the best local spots in Zamboanga City.</p>
-            </div>
-            
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h4>🎯 Customer Care</h4>
-                    <p>Multi-channel support across chat, email, and phone. I don't just solve problems; I rebuild confidence.</p>
-                </div>
-                <div class="skill-card">
-                    <h4>📊 Data Curation</h4>
-                    <p>Maintaining 99%+ accuracy in complex datasets. Details matter, and I catch them.</p>
-                </div>
-                <div class="skill-card">
-                    <h4>🔧 Technical Troubleshooting</h4>
-                    <p>From SaaS platforms to billing systems, I translate tech-speak into plain English.</p>
-                </div>
-                <div class="skill-card">
-                    <h4>🤝 Cross-Functional Work</h4>
-                    <p>Collaborating with engineering, product, and QA teams to make things better for everyone.</p>
-                </div>
-            </div>
+        <div class="skill-card">
+          <div class="skill-icon">🔧</div>
+          <div class="skill-name">Technical Troubleshooting</div>
+          <div class="skill-desc">From SaaS platforms to billing systems — translating tech-speak into plain English.</div>
         </div>
-    </section>
+        <div class="skill-card">
+          <div class="skill-icon">🤝</div>
+          <div class="skill-name">Cross-Functional Work</div>
+          <div class="skill-desc">Collaborating with engineering, product, and QA teams to make things better for everyone.</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🤖</div>
+          <div class="skill-name">AI & Research</div>
+          <div class="skill-desc">Researching and documenting AI trends in business operations and workforce management.</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">📋</div>
+          <div class="skill-name">Report Writing</div>
+          <div class="skill-desc">Compiling structured business reports with accurate data, clear formatting, and actionable insights.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience fade-in">
-        <div class="section-header">
-            <h2>Where I've Been</h2>
-            <p>Every role taught me something new about patience, precision, and the human side of technology.</p>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Career Journey</div>
+  <div class="divider"></div>
+  <h2 class="section-title">Where I've Been</h2>
+  <p class="section-intro">Every role taught me something new about patience, precision, and the human side of technology.</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-period">2023 — 2025</div>
+      <div class="timeline-role">Data Curator</div>
+      <div class="timeline-company">Veeva Systems</div>
+      <div class="timeline-desc">Managed complex healthcare datasets with 99%+ accuracy. Worked closely with product and engineering teams to improve data quality and squash bugs. Learned that behind every data point is a real person who needs things to work right.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-period">2020 — 2022</div>
+      <div class="timeline-role">Senior Process Executive</div>
+      <div class="timeline-company">Cognizant Technology Solutions</div>
+      <div class="timeline-desc">Ran outbound campaigns helping shareholders make informed voting decisions. Discovered that resilience isn't about never getting tired — it's about keeping standards high even when volume gets overwhelming.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-period">2011 — 2014</div>
+      <div class="timeline-role">Customer Service Expert</div>
+      <div class="timeline-company">DISH Network (SPi Global CRM)</div>
+      <div class="timeline-desc">My foundation in multi-channel support. Handled billing, technical issues, and service concerns while learning that a calm voice and clear explanation can turn any situation around. Also got pretty good at spotting upsell opportunities without being pushy.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="section-label">Sample Work</div>
+  <div class="divider"></div>
+  <h2 class="section-title">Portfolio</h2>
+  <p class="section-intro">A selection of research and data work compiled to demonstrate my ability to gather, organize, and present information clearly and accurately.</p>
+
+  <div class="portfolio-grid">
+
+    <!-- Card 1: AI Report -->
+    <div class="portfolio-card">
+      <div class="card-placeholder" style="cursor:pointer;" onclick="openModal()">
+        <div class="card-placeholder-icon">📄</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1rem;color:white;text-align:center;padding:0 1.5rem;line-height:1.4;">AI in Business Report<br><span style="font-size:0.75rem;color:rgba(255,255,255,0.5);font-family:'DM Sans',sans-serif;">2023 – 2026</span></div>
+        <div class="card-placeholder-text">Click to preview</div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Research Report · Data Entry</span>
+        <div class="card-title">AI in Business: Email, Chat & Work Hour Tracking (2023–2026)</div>
+        <div class="card-desc">A structured research report documenting how major companies adopted AI tools for customer communications and employee time tracking. Covers 10+ companies, 8 platforms, market statistics, and a year-by-year timeline.</div>
+        <div class="card-actions">
+          <button class="card-btn-preview" onclick="openModal()">📖 Preview Report</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Spreadsheet -->
+    <div class="portfolio-card">
+      <div class="card-placeholder" style="cursor:pointer;height:200px;padding:1rem;overflow:hidden;position:relative;" onclick="openSpreadsheetModal()">
+        <!-- Mini spreadsheet preview -->
+        <div style="width:100%;overflow:hidden;border-radius:6px;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+          <table style="width:100%;border-collapse:collapse;font-size:7px;font-family:Arial,sans-serif;">
+            <thead>
+              <tr style="background:#1b3a6b;">
+                <th style="color:white;padding:4px 5px;text-align:left;white-space:nowrap;">Company</th>
+                <th style="color:white;padding:4px 5px;text-align:left;white-space:nowrap;">Platform</th>
+                <th style="color:white;padding:4px 5px;text-align:left;white-space:nowrap;">AI Tool</th>
+                <th style="color:white;padding:4px 5px;text-align:left;white-space:nowrap;">Use Case</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:#ffffff;"><td style="padding:3px 5px;color:#1b3a6b;font-weight:bold;">Intercom</td><td style="padding:3px 5px;color:#333;">OpenAI/Anthropic</td><td style="padding:3px 5px;color:#333;">Fin AI Agent</td><td style="padding:3px 5px;color:#333;">Chat resolution</td></tr>
+              <tr style="background:#f2f4f7;"><td style="padding:3px 5px;color:#1b3a6b;font-weight:bold;">Salesforce</td><td style="padding:3px 5px;color:#333;">Einstein AI</td><td style="padding:3px 5px;color:#333;">Agentforce</td><td style="padding:3px 5px;color:#333;">Email drafting</td></tr>
+              <tr style="background:#ffffff;"><td style="padding:3px 5px;color:#1b3a6b;font-weight:bold;">Zendesk</td><td style="padding:3px 5px;color:#333;">OpenAI GPT-4</td><td style="padding:3px 5px;color:#333;">Resolution Bot</td><td style="padding:3px 5px;color:#333;">Auto-resolution</td></tr>
+              <tr style="background:#f2f4f7;"><td style="padding:3px 5px;color:#1b3a6b;font-weight:bold;">Microsoft</td><td style="padding:3px 5px;color:#333;">Azure OpenAI</td><td style="padding:3px 5px;color:#333;">Copilot Service</td><td style="padding:3px 5px;color:#333;">Agent assist</td></tr>
+              <tr style="background:#ffffff;"><td style="padding:3px 5px;color:#1b3a6b;font-weight:bold;">Timely</td><td style="padding:3px 5px;color:#333;">Memory AI</td><td style="padding:3px 5px;color:#333;">AutoTrack</td><td style="padding:3px 5px;color:#333;">Time tracking</td></tr>
+              <tr style="background:#f2f4f7;"><td style="padding:3px 5px;color:#1b3a6b;font-weight:bold;">Jibble</td><td style="padding:3px 5px;color:#333;">Computer Vision</td><td style="padding:3px 5px;color:#333;">Face Recog. AI</td><td style="padding:3px 5px;color:#333;">Attendance</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="position:absolute;inset:0;background:rgba(15,34,64,0.45);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.25s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0">
+          <button style="background:#0e9a8e;color:white;border:none;border-radius:6px;padding:10px 20px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;">📊 Preview Spreadsheet</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Spreadsheet · Data Entry · AI Research</span>
+        <div class="card-title">AI in Business: Company & Tools Tracker (2023–2026)</div>
+        <div class="card-desc">A structured 3-sheet spreadsheet cataloguing 10 companies using AI for email/chat, 8 platforms for work hour tracking, and a master list of 15 top AI automation tools — with vendors, use cases, and adoption status.</div>
+        <div class="card-actions">
+          <button class="card-btn-preview" onclick="openSpreadsheetModal()" style="background:var(--teal);">📊 Preview Spreadsheet</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Placeholder -->
+    <div class="portfolio-card">
+      <div class="card-placeholder">
+        <div class="card-placeholder-icon">📧</div>
+        <div class="card-placeholder-text">Coming Soon</div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Customer Support · Communication</span>
+        <div class="card-title">Email Support Response Samples</div>
+        <div class="card-desc">A curated set of professional email support responses demonstrating tone, clarity, empathy, and problem resolution across various customer scenarios.</div>
+        <div class="card-actions">
+          <button class="card-btn-preview" style="opacity:0.45;cursor:not-allowed;" disabled>Coming Soon</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <div class="divider"></div>
+  <h2 class="section-title">Let's Connect</h2>
+  <p class="section-intro">Whether you're looking for someone to join your team or just want to swap stories about the best customer service wins, I'd love to hear from you.</p>
+  <div class="contact-cards">
+    <a class="contact-card" href="mailto:edward.adrias10@mail.com">
+      <div class="contact-card-icon">📧</div>
+      <div class="contact-card-label">Email</div>
+      <div class="contact-card-value">edward.adrias10@mail.com</div>
+    </a>
+    <a class="contact-card" href="https://www.linkedin.com/in/edward-adrias-0ba9b023a" target="_blank">
+      <div class="contact-card-icon">💼</div>
+      <div class="contact-card-label">LinkedIn</div>
+      <div class="contact-card-value">edward-adrias</div>
+    </a>
+    <div class="contact-card">
+      <div class="contact-card-icon">📍</div>
+      <div class="contact-card-label">Location</div>
+      <div class="contact-card-value">Zamboanga City, Philippines</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Edward Adrias. Built with care in Zamboanga City.</span>
+  <span>Customer Support & Data Specialist</span>
+</footer>
+
+<!-- MODAL: Report Preview -->
+<div class="modal-backdrop" id="reportModal" onclick="closeModalBg(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-header-title">📄 AI in Business Report — 2023 to 2026</span>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-report-content">
+
+        <!-- Cover -->
+        <div class="report-cover">
+          <h1>AI IN BUSINESS</h1>
+          <p style="font-size:1rem;color:rgba(255,255,255,0.8);margin:0.3rem 0;">Sample Research Report</p>
+          <p>Email & Chat AI &nbsp;|&nbsp; Employee Work Hour Tracking</p>
+          <p style="margin-top:0.8rem;font-size:0.8rem;color:rgba(255,255,255,0.45);">Coverage Period: 2023 – Present (2026) &nbsp;·&nbsp; Prepared by: Edward Adrias</p>
         </div>
 
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="timeline-date">2023 — 2025</span>
-                    <h3>Data Curator</h3>
-                    <div class="company">Veeva Systems</div>
-                    <p>Managed complex healthcare datasets with 99%+ accuracy. Worked closely with product and engineering teams to squash bugs and improve data quality. Learned that behind every data point is a real person who needs things to work right.</p>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="timeline-date">2020 — 2022</span>
-                    <h3>Senior Process Executive</h3>
-                    <div class="company">Cognizant Technology Solutions</div>
-                    <p>Ran outbound campaigns helping shareholders make informed voting decisions. Discovered that resilience isn't about never getting tired—it's about keeping standards high even when volume gets overwhelming.</p>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="timeline-date">2011 — 2014</span>
-                    <h3>Customer Service Expert</h3>
-                    <div class="company">DISH Network (SPi Global CRM)</div>
-                    <p>My foundation in multi-channel support. Handled billing, technical issues, and service concerns while learning that a calm voice and clear explanation can turn any situation around. Also got pretty good at spotting upsell opportunities without being pushy.</p>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact fade-in">
-        <h2>Let's Connect</h2>
-        <p>Whether you're looking for someone to join your team or just want to swap stories about the best customer service wins, I'd love to hear from you.</p>
-        
-        <div class="contact-grid">
-            <div class="contact-card">
-                <div class="icon">📧</div>
-                <h4>Email</h4>
-                <a href="mailto:edward.adrias10@mail.com">edward.adrias10@mail.com</a>
-            </div>
-            <div class="contact-card">
-                <div class="icon">📱</div>
-                <h4>Phone</h4>
-                <a href="tel:+6399199054185">+63 991 990 54185</a>
-            </div>
-            <div class="contact-card">
-                <div class="icon">📍</div>
-                <h4>Location</h4>
-                <span>Zamboanga City, Philippines</span>
-            </div>
+        <!-- Key Stats -->
+        <div class="report-stats">
+          <div class="report-stat">
+            <span class="report-stat-num">$12.06B</span>
+            <div class="report-stat-label">AI Customer Service Market Size (2024)</div>
+          </div>
+          <div class="report-stat">
+            <span class="report-stat-num">65%</span>
+            <div class="report-stat-label">Support Queries Resolved by AI (2025)</div>
+          </div>
+          <div class="report-stat" style="background:var(--teal);">
+            <span class="report-stat-num">25.8%</span>
+            <div class="report-stat-label">Projected Market CAGR Through 2030</div>
+          </div>
         </div>
 
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/edward-adrias-0ba9b023a" target="_blank" title="LinkedIn">in</a>
+        <!-- Executive Summary -->
+        <div class="report-section-title">Executive Summary</div>
+        <p class="report-body">Artificial intelligence has rapidly transformed how businesses handle customer communications and workforce management. From 2023 to the present, a growing number of companies across industries have adopted AI-powered tools to automate email and chat responses, improve customer satisfaction, and gain precise visibility into employee work hours.</p>
+
+        <!-- Section 1 -->
+        <div class="report-section-title">Section 1: Companies Using AI for Email & Chat Responses</div>
+        <p class="report-body">The following table presents leading companies and platforms that have deployed AI-powered tools for automating or augmenting email and chat-based customer support between 2023 and 2026.</p>
+
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th>Company / Platform</th>
+              <th>AI Tool / Feature</th>
+              <th>Year</th>
+              <th>Key Outcome</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Intercom</td><td>Fin AI Agent</td><td>2023</td><td>Resolves 86% of queries; reply time cut to seconds</td></tr>
+            <tr><td>Salesforce</td><td>Einstein GPT for Service</td><td>2024</td><td>Drafts responses across email, chat & voice using CRM data</td></tr>
+            <tr><td>Zendesk</td><td>AI Resolution Bot</td><td>2025</td><td>Full autonomous issue resolution — not just suggestions</td></tr>
+            <tr><td>Unity Technologies</td><td>AI Agent + Knowledge Base</td><td>2024</td><td>Deflected 8,000 tickets; saved $1.3 million</td></tr>
+            <tr><td>Delta Airlines</td><td>AI Support Assistant</td><td>2023</td><td>Reduced hold times from ~5 min to ~5 seconds</td></tr>
+            <tr><td>Intuit (Credit Karma)</td><td>Intuit AI Assistant</td><td>2024</td><td>Handles financial Q&A and personalized credit insights</td></tr>
+            <tr><td>Microsoft</td><td>AI Customer Agents</td><td>2024–25</td><td>70% less human intervention; 90% first-call resolution</td></tr>
+            <tr><td>ServiceNow</td><td>AI Support Agents</td><td>2025</td><td>Handles 80% of inquiries autonomously</td></tr>
+            <tr><td>Fisher & Paykel</td><td>AI Live Chat</td><td>2024</td><td>Halved call times; 65% resolved without agents</td></tr>
+            <tr><td>Mailbutler</td><td>AI Support Bot "Alaska"</td><td>2025</td><td>Handles tier-one inquiries; improved response times</td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout">
+          <strong>📊 Key Industry Trend:</strong> The AI customer service market reached $12.06 billion in 2024 and is projected to hit $47.82 billion by 2030. By 2025, 65% of incoming support queries were being resolved without human intervention — up from 52% in 2023.
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2025 Edward Adrias. Built with care in Zamboanga City.</p>
-    </footer>
+        <!-- Section 2 -->
+        <div class="report-section-title">Section 2: AI for Employee Work Hour Tracking</div>
+        <p class="report-body">AI-powered time tracking tools have grown substantially since 2023, helping businesses automate attendance logging, productivity monitoring, and workforce scheduling.</p>
 
-    <script>
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Key AI Features</th>
+              <th>Base Pricing</th>
+              <th>Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Timely</td><td>Memory-based auto-tracking; AI timesheets</td><td>$11/user/mo</td><td>Remote teams</td></tr>
+            <tr><td>RescueTime</td><td>Real-time tracking; distraction alerts</td><td>$6/user/mo</td><td>Individual productivity</td></tr>
+            <tr><td>Jibble</td><td>Facial recognition; GPS tracking</td><td>Free / $3</td><td>Mobile-first/field staff</td></tr>
+            <tr><td>Rize</td><td>Focus tracking; work pattern analytics</td><td>$9.99/mo</td><td>Deep work / individuals</td></tr>
+            <tr><td>Timeular</td><td>Physical tracker + AI software</td><td>$9/user/mo</td><td>Tangible tracking method</td></tr>
+            <tr><td>TrackingTime</td><td>AI project tracking + visual timelines</td><td>Free / $5.75</td><td>Project-based teams</td></tr>
+            <tr><td>WebWork</td><td>AI monitoring; screenshots; payroll</td><td>Varies</td><td>Comprehensive oversight</td></tr>
+            <tr><td>Replicon (Deltek)</td><td>Automated capture; compliance; FedRAMP</td><td>Enterprise</td><td>Regulated industries</td></tr>
+          </tbody>
+        </table>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+        <div class="callout" style="border-color:var(--teal);background:#e6f7f5;">
+          <strong>📈 Market Growth:</strong> The global AI in HR market was valued at $7.01 billion in 2024 and is projected to grow to $30.77 billion by 2034. Businesses using AI time tracking report a 95% reduction in tracking errors and save ~2 hours per employee per week.
+        </div>
 
-        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+        <!-- Section 3 -->
+        <div class="report-section-title">Section 3: AI Adoption Timeline (2023–2026)</div>
 
-        // Navbar background on scroll
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
-            } else {
-                navbar.style.boxShadow = 'none';
-            }
-        });
+        <span class="timeline-pill">2023</span>
+        <p class="report-body" style="margin-bottom:0.8rem;">Intercom launches Fin AI Agent · Delta Airlines deploys support AI · AI resolves 52% of queries globally · AI in HR market at $3.25B</p>
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+        <span class="timeline-pill blue">2024</span>
+        <p class="report-body" style="margin-bottom:0.8rem;">Salesforce rolls out Einstein GPT · Unity saves $1.3M with AI agent · Intuit launches generative AI suite · Microsoft achieves 90% FCR · AI customer service market hits $12.06B</p>
+
+        <span class="timeline-pill teal">2025</span>
+        <p class="report-body" style="margin-bottom:0.8rem;">Zendesk debuts Resolution Bot · Mailbutler launches Project Alaska · 65% of queries resolved without humans · 88% of orgs adopt AI in some function · AI CS market at $15.12B</p>
+
+        <span class="timeline-pill gray">2026 (Projected)</span>
+        <p class="report-body">AI agent market approaches $7.6B · 85% of enterprises expected to use AI agents · AI software sector projected to hit $467B by 2030</p>
+
+        <!-- Conclusion -->
+        <div class="report-section-title">Conclusion</div>
+        <p class="report-body">From 2023 to the present, AI has become a cornerstone of business operations — particularly in customer communication and workforce management. The data is clear: businesses that adopt AI for these functions see measurable efficiency gains and competitive advantages, with both markets expanding at 15–26% annually through 2030.</p>
+
+        <p style="font-size:0.78rem;color:#aaa;margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);">Sources: Polaris Market Research · Zendesk CX Trends 2025 · McKinsey & Company · Gartner · Assembled.com · DeskTrack · AIForBusinesses.com &nbsp;|&nbsp; Report Date: May 2026</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Spreadsheet Preview -->
+<div class="modal-backdrop" id="spreadsheetModal" onclick="closeSpreadsheetBg(event)">
+  <div class="modal" style="max-width:1100px;">
+    <div class="modal-header" style="background:#0f2240;">
+      <span class="modal-header-title">📊 AI in Business — Company & Tools Tracker (2023–2026)</span>
+      <button class="modal-close" onclick="closeSpreadsheetModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div style="padding:0;">
+
+        <!-- Tab bar -->
+        <div style="display:flex;background:#1b3a6b;border-bottom:2px solid #0e9a8e;">
+          <button class="ss-tab active" onclick="showTab('tab-chat',this)">📧 Email & Chat AI</button>
+          <button class="ss-tab" onclick="showTab('tab-time',this)">⏱ Work Hour Tracking</button>
+          <button class="ss-tab" onclick="showTab('tab-tools',this)">🤖 AI Tools Master List</button>
+        </div>
+
+        <style>
+          .ss-tab {
+            padding:10px 22px;font-size:0.82rem;font-weight:600;
+            background:transparent;border:none;color:rgba(255,255,255,0.6);
+            cursor:pointer;font-family:'DM Sans',sans-serif;
+            border-bottom:3px solid transparent;transition:all 0.2s;
+          }
+          .ss-tab.active,.ss-tab:hover { color:#fff;border-bottom-color:#0e9a8e; }
+          .ss-sheet { display:none;overflow:auto;max-height:60vh; }
+          .ss-sheet.visible { display:block; }
+          .ss-table { width:100%;border-collapse:collapse;font-size:0.8rem;font-family:Arial,sans-serif;min-width:900px; }
+          .ss-table th { background:#1b3a6b;color:#fff;padding:10px 12px;text-align:left;white-space:nowrap;position:sticky;top:0;z-index:2; }
+          .ss-table td { padding:9px 12px;border-bottom:1px solid #dde3ee;color:#333;vertical-align:top; }
+          .ss-table tr:nth-child(even) td { background:#f2f4f7; }
+          .ss-table td:first-child { color:#1b3a6b;font-weight:700;white-space:nowrap; }
+          .ss-banner { background:linear-gradient(135deg,#0f2240,#1b3a6b);padding:14px 20px;font-size:0.78rem;color:rgba(255,255,255,0.6);font-family:Arial,sans-serif; }
+          .ss-banner strong { color:#fff; }
+          .ss-stat-row { display:flex;background:#f7f4ef;padding:10px 16px;gap:2rem;font-size:0.8rem;border-bottom:1px solid #dde3ee;flex-wrap:wrap; }
+          .ss-stat { display:flex;flex-direction:column; }
+          .ss-stat-n { font-weight:800;font-size:1.1rem;color:#0f2240; }
+          .ss-stat-l { color:#5a6072;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em; }
+          .badge-active { color:#16a34a;font-weight:700; }
+          .cat-chat { background:#dbeafe; }
+          .cat-fin  { background:#d1fae5; }
+          .cat-it   { background:#ede9fe; }
+          .cat-call { background:#fef3c7; }
+          .cat-time { background:#ccfbf1; }
+        </style>
+
+        <!-- Sheet 1 -->
+        <div id="tab-chat" class="ss-sheet visible">
+          <div class="ss-banner"><strong>Section 1 — Companies Using AI for Email & Chat Responses</strong> &nbsp;|&nbsp; Coverage: 2023–2026 &nbsp;|&nbsp; Prepared by: Edward Adrias</div>
+          <div class="ss-stat-row">
+            <div class="ss-stat"><span class="ss-stat-n">10</span><span class="ss-stat-l">Companies Tracked</span></div>
+            <div class="ss-stat"><span class="ss-stat-n">$12.06B</span><span class="ss-stat-l">Market Size 2024</span></div>
+            <div class="ss-stat"><span class="ss-stat-n">65%</span><span class="ss-stat-l">Queries Auto-Resolved 2025</span></div>
+            <div class="ss-stat"><span class="ss-stat-n">25.8%</span><span class="ss-stat-l">Projected CAGR to 2030</span></div>
+          </div>
+          <table class="ss-table">
+            <thead><tr>
+              <th>Company / Platform</th><th>Industry</th><th>AI Platform / Vendor</th>
+              <th>Top AI Tools Used</th><th>Automation Focus</th>
+              <th>Year</th><th>Resolution Rate</th><th>Key Outcome</th><th>Status</th>
+            </tr></thead>
+            <tbody>
+              <tr><td>Intercom</td><td>SaaS / Tech</td><td>OpenAI + Anthropic</td><td>Fin AI Agent, GPT-4, Claude 3</td><td>Live chat, email triage, ticket deflection</td><td style="text-align:center">2023</td><td style="text-align:center">86%</td><td>Reply time cut from 30 min to seconds</td><td class="badge-active">✅ Active & Expanding</td></tr>
+              <tr><td>Salesforce</td><td>CRM / Enterprise</td><td>Salesforce Einstein AI</td><td>Einstein GPT, Agentforce, Copilot</td><td>Email drafting, CRM-aware chat, routing</td><td style="text-align:center">2024</td><td style="text-align:center">N/A</td><td>AI drafts tailored responses using live CRM data</td><td class="badge-active">✅ Active & Expanding</td></tr>
+              <tr><td>Zendesk</td><td>Customer Service</td><td>OpenAI GPT-4</td><td>Zendesk AI, Resolution Bot, Answer Bot</td><td>Full autonomous issue resolution, routing</td><td style="text-align:center">2025</td><td style="text-align:center">~70%</td><td>Shifted to fully autonomous ticket resolution</td><td class="badge-active">✅ Active & Expanding</td></tr>
+              <tr><td>Unity Technologies</td><td>Gaming / Software</td><td>Custom AI Agent</td><td>Internal AI + Knowledge Base</td><td>Ticket deflection, FAQ automation, triage</td><td style="text-align:center">2024</td><td style="text-align:center">N/A</td><td>Deflected 8,000 tickets; saved $1.3M</td><td class="badge-active">✅ Active</td></tr>
+              <tr><td>Delta Airlines</td><td>Aviation</td><td>Internal AI Assistant</td><td>AI Policy Search Tool, Agent Assist</td><td>Agent info retrieval, call center assist</td><td style="text-align:center">2023</td><td style="text-align:center">N/A</td><td>Reduced hold time from ~5 min to ~5 sec</td><td class="badge-active">✅ Active</td></tr>
+              <tr><td>Intuit (Credit Karma)</td><td>Fintech</td><td>Intuit GenAI Platform</td><td>Intuit Assist, GenOS, Credit Karma AI</td><td>Financial Q&A, personalized chat</td><td style="text-align:center">2024</td><td style="text-align:center">N/A</td><td>Handles credit & loan queries autonomously</td><td class="badge-active">✅ Active & Expanding</td></tr>
+              <tr><td>Microsoft</td><td>Tech / Enterprise</td><td>Azure OpenAI GPT-4</td><td>Copilot for Service, Power Virtual Agents</td><td>Email drafting, agent assist, chat</td><td style="text-align:center">2024–25</td><td style="text-align:center">90% FCR</td><td>70% less human intervention; 90% FCR</td><td class="badge-active">✅ Active & Expanding</td></tr>
+              <tr><td>ServiceNow</td><td>Enterprise IT</td><td>Now Intelligence AI</td><td>Now Assist, Virtual Agent, Predictive AI</td><td>IT ticket routing, automated resolution</td><td style="text-align:center">2025</td><td style="text-align:center">80%</td><td>80% of support handled without humans</td><td class="badge-active">✅ Active & Expanding</td></tr>
+              <tr><td>Fisher & Paykel</td><td>Home Appliances</td><td>Custom AI Chat</td><td>AI Live Chat, NLP Engine</td><td>Product troubleshooting, live chat</td><td style="text-align:center">2024</td><td style="text-align:center">65%</td><td>Halved call times; 65% resolved by AI</td><td class="badge-active">✅ Active</td></tr>
+              <tr><td>Mailbutler</td><td>Email Productivity</td><td>OpenAI GPT-4</td><td>AI Support Bot "Alaska", Smart Assistant</td><td>Tier-one support, email automation</td><td style="text-align:center">2025</td><td style="text-align:center">N/A</td><td>Handles all tier-one inquiries; faster responses</td><td class="badge-active">✅ Active</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Sheet 2 -->
+        <div id="tab-time" class="ss-sheet">
+          <div class="ss-banner"><strong>Section 2 — AI Platforms for Employee Work Hour Tracking</strong> &nbsp;|&nbsp; Coverage: 2023–2026 &nbsp;|&nbsp; Prepared by: Edward Adrias</div>
+          <div class="ss-stat-row">
+            <div class="ss-stat"><span class="ss-stat-n">8</span><span class="ss-stat-l">Platforms Tracked</span></div>
+            <div class="ss-stat"><span class="ss-stat-n">$7.01B</span><span class="ss-stat-l">AI in HR Market 2024</span></div>
+            <div class="ss-stat"><span class="ss-stat-n">$30.77B</span><span class="ss-stat-l">Projected by 2034</span></div>
+            <div class="ss-stat"><span class="ss-stat-n">95%</span><span class="ss-stat-l">Reduction in Tracking Errors</span></div>
+          </div>
+          <table class="ss-table">
+            <thead><tr>
+              <th>Platform / Tool</th><th>Company / User Base</th><th>AI Platform / Vendor</th>
+              <th>Top AI Tools for Automation</th><th>Key Features</th>
+              <th>Pricing (Base)</th><th>Best For</th><th>Status 2026</th>
+            </tr></thead>
+            <tbody>
+              <tr><td>Timely</td><td>Remote companies, agencies</td><td>Proprietary Memory AI</td><td>Memory AI, AutoTrack, AI Timesheet Generator</td><td>Auto-tracks 100+ apps; editable timeline; privacy-first</td><td>$11/user/mo</td><td>Remote & distributed teams</td><td class="badge-active">✅ Active & Growing</td></tr>
+              <tr><td>RescueTime</td><td>Freelancers, SMBs, knowledge workers</td><td>Proprietary ML Engine</td><td>FocusTime AI, Productivity Score AI, Distraction Blocker</td><td>Real-time activity; productivity scoring; distraction alerts</td><td>$6/user/mo</td><td>Individual productivity</td><td class="badge-active">✅ Active</td></tr>
+              <tr><td>Jibble</td><td>Retail, field services, shift teams</td><td>Proprietary AI + Computer Vision</td><td>Facial Recognition AI, GPS Geofencing AI, Attendance AI</td><td>Mobile-first; biometric clock-in; GPS; automated reports</td><td>Free / $3 Premium</td><td>Mobile-first & field workers</td><td class="badge-active">✅ Active & Growing</td></tr>
+              <tr><td>Rize</td><td>Developers, writers, solopreneurs</td><td>Focus Intelligence AI</td><td>Focus Pattern AI, Auto Time Categorization, Habit Insights</td><td>No timers; auto app tracking; work pattern analytics</td><td>$9.99/mo</td><td>Deep work & individual focus</td><td class="badge-active">✅ Active</td></tr>
+              <tr><td>Timeular</td><td>Consulting, creative agencies</td><td>Proprietary AI + IoT</td><td>Physical Tracker + AI Activity Tagger, Smart Reports</td><td>8-sided physical device + AI software; time summaries</td><td>$9/user/mo</td><td>Tangible tracking method</td><td class="badge-active">✅ Active</td></tr>
+              <tr><td>TrackingTime</td><td>Project-based agencies, startups</td><td>Proprietary AI</td><td>AI Project Tracker, Visual Timeline AI, Team Analytics</td><td>AI project tracking; gantt-style timelines; PM integrations</td><td>Free / $5.75 Pro</td><td>Project-based team mgmt</td><td class="badge-active">✅ Active</td></tr>
+              <tr><td>WebWork Tracker</td><td>Remote teams, BPOs</td><td>Proprietary AI Monitor</td><td>AI Productivity Monitor, Screenshot AI, Payroll Automation</td><td>Screenshots; keystroke tracking; payroll; activity level AI</td><td>Varies (per user)</td><td>Comprehensive oversight</td><td class="badge-active">✅ Active & Growing</td></tr>
+              <tr><td>Replicon (Deltek)</td><td>Government contractors, enterprises</td><td>Deltek AI + Compliance</td><td>AI Time Capture, CloudClock AI, Compliance Validation AI</td><td>FedRAMP certified; labor compliance; enterprise scale</td><td>Enterprise pricing</td><td>Regulated industries</td><td class="badge-active">✅ Enterprise Dominant</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Sheet 3 -->
+        <div id="tab-tools" class="ss-sheet">
+          <div class="ss-banner"><strong>Section 3 — AI Tools Master List: Automation Across Business Functions</strong> &nbsp;|&nbsp; Coverage: 2023–2026 &nbsp;|&nbsp; Prepared by: Edward Adrias</div>
+          <div class="ss-stat-row">
+            <div class="ss-stat"><span class="ss-stat-n">15</span><span class="ss-stat-l">AI Tools Documented</span></div>
+            <div class="ss-stat"><span class="ss-stat-n">5</span><span class="ss-stat-l">Categories Covered</span></div>
+            <div class="ss-stat"><span class="ss-stat-n">2023–26</span><span class="ss-stat-l">Coverage Period</span></div>
+          </div>
+          <table class="ss-table">
+            <thead><tr>
+              <th>AI Tool / Product Name</th><th>Vendor / Developer</th><th>Category</th>
+              <th>Primary Automation Use</th><th>Used By (Example Companies)</th>
+              <th>Active Since</th><th>Availability</th>
+            </tr></thead>
+            <tbody>
+              <tr class="cat-chat"><td>Fin AI Agent</td><td>Intercom</td><td>Email & Chat Support</td><td>Autonomous customer query resolution via chat and email</td><td>Intercom clients (thousands of SaaS companies)</td><td style="text-align:center">2023</td><td>✅ Public</td></tr>
+              <tr class="cat-chat"><td>Einstein GPT / Agentforce</td><td>Salesforce</td><td>Email & Chat Support</td><td>AI-generated email drafts, CRM-aware chat, auto-routing</td><td>Salesforce CRM customers globally</td><td style="text-align:center">2024</td><td>✅ Public</td></tr>
+              <tr class="cat-chat"><td>Zendesk AI Resolution Bot</td><td>Zendesk</td><td>Email & Chat Support</td><td>Full ticket resolution, smart deflection, agent assist</td><td>Zendesk customers across support teams</td><td style="text-align:center">2025</td><td>✅ Public</td></tr>
+              <tr class="cat-fin"><td>Intuit Assist / GenOS</td><td>Intuit</td><td>Financial Chat AI</td><td>Personal finance Q&A, credit recommendations, loan guidance</td><td>Credit Karma, TurboTax, QuickBooks users</td><td style="text-align:center">2024</td><td>✅ Public</td></tr>
+              <tr class="cat-chat"><td>Copilot for Service</td><td>Microsoft (Azure OpenAI)</td><td>Email & Chat Support</td><td>Email drafting, live agent assist, case summarization</td><td>Microsoft enterprise clients, Dynamics 365 users</td><td style="text-align:center">2024</td><td>✅ Public</td></tr>
+              <tr class="cat-it"><td>Now Assist / Virtual Agent</td><td>ServiceNow</td><td>IT Service Chat</td><td>IT ticket routing, automated resolution, self-service</td><td>ServiceNow enterprise ITSM customers</td><td style="text-align:center">2024</td><td>✅ Public</td></tr>
+              <tr class="cat-chat"><td>AI Support Bot "Alaska"</td><td>Mailbutler</td><td>Email & Chat Support</td><td>Tier-one email query handling and response automation</td><td>Mailbutler internal customer base</td><td style="text-align:center">2025</td><td>✅ Internal</td></tr>
+              <tr class="cat-call"><td>Delta AI Agent Assist</td><td>Delta Airlines (Internal)</td><td>Call Center / Chat</td><td>Policy search, agent info retrieval, call center assist</td><td>Delta Airlines customer service agents</td><td style="text-align:center">2023</td><td>🔒 Internal</td></tr>
+              <tr class="cat-time"><td>Memory AI / AutoTrack</td><td>Timely</td><td>Work Hour Tracking</td><td>Automatic multi-app time capture, AI timesheet generation</td><td>Remote companies, consulting firms, agencies</td><td style="text-align:center">2023</td><td>✅ Public</td></tr>
+              <tr class="cat-time"><td>FocusTime AI / Productivity Score</td><td>RescueTime</td><td>Work Hour Tracking</td><td>Real-time productivity scoring, distraction blocking</td><td>Freelancers, SMBs, knowledge workers</td><td style="text-align:center">2023</td><td>✅ Public</td></tr>
+              <tr class="cat-time"><td>Facial Recognition Clock-In AI</td><td>Jibble</td><td>Work Hour Tracking</td><td>Biometric attendance, GPS geofencing, shift automation</td><td>Retail chains, field service companies, BPOs</td><td style="text-align:center">2023</td><td>✅ Public</td></tr>
+              <tr class="cat-time"><td>Focus Pattern AI</td><td>Rize</td><td>Work Hour Tracking</td><td>Automatic work categorization, focus analytics, habit tracking</td><td>Developers, writers, solopreneurs</td><td style="text-align:center">2023</td><td>✅ Public</td></tr>
+              <tr class="cat-time"><td>AI Time Capture / CloudClock</td><td>Replicon (Deltek)</td><td>Work Hour Tracking</td><td>Automated time entry, labor compliance, contractor reporting</td><td>Fortune 500 firms, government contractors</td><td style="text-align:center">2023</td><td>✅ Enterprise</td></tr>
+              <tr class="cat-time"><td>AI Productivity Monitor</td><td>WebWork Tracker</td><td>Work Hour Tracking</td><td>Screenshots, activity level AI, payroll automation</td><td>Remote companies, outsourcing firms, BPOs</td><td style="text-align:center">2023</td><td>✅ Public</td></tr>
+              <tr class="cat-time"><td>AI Project Time Tracker</td><td>TrackingTime</td><td>Work Hour Tracking</td><td>Project-linked time tracking, visual timelines, team analytics</td><td>Agencies, startups, project-based teams</td><td style="text-align:center">2023</td><td>✅ Public</td></tr>
+            </tbody>
+          </table>
+          <div style="padding:12px 16px;font-size:0.75rem;color:#5a6072;background:#f7f4ef;border-top:1px solid #dde3ee;">
+            <strong>Category Legend:</strong>
+            &nbsp;<span style="background:#dbeafe;padding:2px 8px;border-radius:4px;">Email & Chat Support</span>
+            &nbsp;<span style="background:#d1fae5;padding:2px 8px;border-radius:4px;">Financial Chat AI</span>
+            &nbsp;<span style="background:#ede9fe;padding:2px 8px;border-radius:4px;">IT Service Chat</span>
+            &nbsp;<span style="background:#fef3c7;padding:2px 8px;border-radius:4px;">Call Center / Chat</span>
+            &nbsp;<span style="background:#ccfbf1;padding:2px 8px;border-radius:4px;">Work Hour Tracking</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById('reportModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('reportModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalBg(e) {
+    if (e.target === document.getElementById('reportModal')) closeModal();
+  }
+
+  function openSpreadsheetModal() {
+    document.getElementById('spreadsheetModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSpreadsheetModal() {
+    document.getElementById('spreadsheetModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeSpreadsheetBg(e) {
+    if (e.target === document.getElementById('spreadsheetModal')) closeSpreadsheetModal();
+  }
+
+  function showTab(id, btn) {
+    document.querySelectorAll('.ss-sheet').forEach(s => s.classList.remove('visible'));
+    document.querySelectorAll('.ss-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('visible');
+    btn.classList.add('active');
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeModal(); closeSpreadsheetModal(); }
+  });
+</script>
+
 </body>
 </html>
