@@ -1,237 +1,110 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Edward Adrias — Customer Support, Operations &amp; Automation</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Edward Adrias — Customer Support, Operations, CRM Automation and GoHighLevel portfolio.">
+<title>Edward Adrias — Support · Operations · Automation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#F7F8FA;--surface:#fff;--alt:#ECEFF3;--line:#D8DCE3;
-  --ink:#14213D;--body:#3A4152;--muted:#6B7280;
-  --live:#2F9E44;--live-bg:#E7F6EA;--wait:#F08C00;--wait-bg:#FDF1DF;--link:#0C8599;
+:root{--ink:#101828;--body:#475467;--muted:#667085;--line:#e4e7ec;--bg:#f8fafc;--white:#fff;--blue:#155eef;--blue2:#84adff;--soft:#eef4ff;--green:#12b76a;--shadow:0 20px 55px rgba(16,24,40,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--body);font:16px/1.65 "DM Sans",sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;z-index:-2;width:650px;height:650px;right:-250px;top:100px;background:radial-gradient(circle,rgba(21,94,239,.08),transparent 68%);pointer-events:none}
+a{text-decoration:none;color:inherit}button{font:inherit}.wrap{width:min(1120px,calc(100% - 44px));margin:auto}
+nav{height:76px;position:sticky;top:0;z-index:100;border-bottom:1px solid transparent;transition:.3s}
+nav.scrolled{background:rgba(248,250,252,.88);backdrop-filter:blur(15px);border-color:var(--line);box-shadow:0 8px 30px rgba(16,24,40,.04)}
+.navin{height:100%;display:flex;align-items:center;gap:30px}.logo{font:700 22px "Space Grotesk";color:var(--ink);margin-right:auto}.logo span{color:var(--blue)}
+.navlinks{display:flex;gap:26px;color:var(--muted);font-size:14px}.navlinks a{position:relative;padding:7px 0}.navlinks a:after{content:"";position:absolute;left:0;bottom:1px;width:0;height:2px;background:var(--blue);transition:.25s}.navlinks a:hover,.navlinks a.active{color:var(--ink)}.navlinks a:hover:after,.navlinks a.active:after{width:100%}
+.navcta,.primary{background:var(--ink);color:#fff;border-radius:9px;font-weight:700}.navcta{padding:10px 16px;font-size:13px}.menu{display:none;border:0;background:none;font-size:25px;color:var(--ink);cursor:pointer}
+.hero{min-height:650px;display:grid;grid-template-columns:1.3fr .7fr;align-items:center;gap:80px;padding:90px 0 105px;position:relative}.eyebrow,.section-label{font:700 11px "Space Grotesk";letter-spacing:.16em;color:var(--blue)}h1,h2,h3{font-family:"Space Grotesk";color:var(--ink);line-height:1.08}
+h1{font-size:clamp(48px,6vw,78px);letter-spacing:-.06em;margin:18px 0 25px;max-width:780px}.hero p{font-size:19px;max-width:650px;color:var(--muted)}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}.primary,.secondary{padding:13px 19px;display:inline-flex;align-items:center;gap:10px}.primary{transition:.25s}.primary:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(16,24,40,.2)}.secondary{border:1px solid var(--line);background:#fff;font-weight:700}.secondary:hover{border-color:#98a2b3;transform:translateY(-2px)}
+.hero-card{justify-self:end;width:min(350px,100%);animation:float 6s ease-in-out infinite}.portrait{aspect-ratio:1;border-radius:25px;overflow:hidden;background:#e9eef7;box-shadow:var(--shadow)}.portrait img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s}.hero-card:hover img{transform:scale(1.04)}
+.availability{margin-top:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 14px;font-size:13px;box-shadow:0 10px 30px rgba(16,24,40,.04)}.availability i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:8px}
+.hero-mini{display:flex;gap:16px;align-items:center;padding:19px 0}.hero-mini strong{font:700 32px "Space Grotesk";color:var(--ink)}.hero-mini span{font-size:13px;color:var(--muted)}
+section{padding:105px 0;border-top:1px solid var(--line)}.reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;margin-top:25px}.about-grid h2,.section-title,.auto-head h2{font-size:44px;letter-spacing:-.04em;margin:0}.about-grid p{margin:0 0 18px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}.tag{background:#fff;border:1px solid var(--line);padding:7px 11px;border-radius:999px;font-size:13px;transition:.2s}.tag:hover{border-color:var(--blue2);color:var(--blue);transform:translateY(-2px)}
+.section-title{margin:22px 0 58px}.job{display:grid;grid-template-columns:180px 1fr;gap:40px;padding:30px 0;border-top:1px solid var(--line);transition:.25s}.job:hover{padding-left:10px}.job>span{color:var(--muted);font-size:13px}.job h3{font-size:24px;margin:0 0 2px}.job b{font-size:14px;color:var(--blue)}.job p{max-width:720px;color:var(--muted);margin:9px 0 0}
+.auto-head{display:flex;justify-content:space-between;gap:40px;margin:25px 0 45px}.auto-head p{max-width:560px;color:var(--muted)}.build-count{text-align:right;font:700 52px/1 "Space Grotesk";color:var(--ink)}.build-count small{display:block;font:500 12px "DM Sans";color:var(--muted);margin-top:7px}
+.auto-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:16px}.auto-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px;transition:.3s;cursor:pointer;position:relative;overflow:hidden}.auto-card:before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--blue);transform:scaleY(0);transform-origin:bottom;transition:.3s}.auto-card:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:#c9d5e8}.auto-card:hover:before{transform:scaleY(1)}
+.badge{display:inline-block;padding:6px 9px;background:var(--soft);color:var(--blue);border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.08em}.badge.tested{background:#ecfdf3;color:#027a48}.auto-card h3{font-size:22px;margin:16px 0 8px}.auto-card p{font-size:14px;color:var(--muted)}
+.flow,.singleflow{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-top:21px;font-size:12px}.node{background:#f2f4f7;padding:8px 9px;border-radius:7px;color:var(--ink);border:1px solid transparent;transition:.2s}.node:hover{border-color:#b2c9f8;background:var(--soft)}.arrow{color:#98a2b3}.branches{border-left:2px solid var(--line);margin:16px 0 0 5px;padding-left:13px;font-size:12px}.branches div{margin:8px 0}.branches em,.branchlist em{font-style:normal;color:var(--muted);display:inline-block;min-width:88px}.branchlist{margin-top:20px}.branchlist div{display:flex;justify-content:space-between;padding:11px 0;border-top:1px solid var(--line);font-size:12px}.branchlist strong{color:var(--ink)}
+.detail{max-height:0;overflow:hidden;transition:max-height .45s ease,opacity .3s;opacity:0}.auto-card.open .detail{max-height:250px;opacity:1}.expand{position:absolute;right:22px;top:22px;width:28px;height:28px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--muted);cursor:pointer}.auto-card.open .expand{transform:rotate(45deg)}
+.pipeline-wrap{margin-top:50px}.pipeline-title{font:700 12px "Space Grotesk";letter-spacing:.12em;color:var(--muted)}.pipeline{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:14px}.stage{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px;position:relative;overflow:hidden}.stage:after{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--blue);transition:width .7s}.pipeline.visible .stage:after{width:100%}.stage.won{background:#ecfdf3;border-color:#b7ebcd}.stage.lost{background:#f2f4f7}.stage .n{display:block;font-size:10px;color:var(--muted)}.stage .label{font-weight:700;color:var(--ink);font-size:13px}
+.note{font-size:13px;color:var(--muted);background:#f2f4f7;border-radius:10px;padding:13px 15px;margin-top:16px}
+.skills{padding-top:80px}.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}.skill-grid>div{background:#fff;padding:25px;transition:.25s}.skill-grid>div:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(16,24,40,.06);position:relative;z-index:2}.skill-grid strong{font-family:"Space Grotesk";color:var(--ink)}.skill-grid p{font-size:13px;color:var(--muted);margin:7px 0 0}
+footer{padding:110px 0 90px;display:flex;justify-content:space-between;gap:60px}.contact h2{font-size:58px;letter-spacing:-.05em;margin:20px 0 8px}.contact p{color:var(--muted)}.contactlinks{display:flex;flex-direction:column;align-items:flex-end;gap:13px;padding-top:38px;font-weight:700}.contactlinks a{border-bottom:1px solid var(--line);padding-bottom:3px}.contactlinks a:hover{color:var(--blue);border-color:var(--blue)}
+.to-top{position:fixed;right:22px;bottom:22px;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:#fff;box-shadow:0 8px 24px rgba(16,24,40,.1);cursor:pointer;opacity:0;pointer-events:none;transition:.25s;z-index:90}.to-top.show{opacity:1;pointer-events:auto}.progress{position:fixed;top:0;left:0;height:3px;background:var(--blue);width:0;z-index:200}
+@keyframes float{0%,100%{transform:translateY(0) rotate(1deg)}50%{transform:translateY(-10px) rotate(-1deg)}}
+@media(max-width:800px){
+.wrap{width:min(100% - 32px,600px)}nav{height:68px}.navlinks{position:absolute;left:16px;right:16px;top:74px;display:flex;flex-direction:column;gap:0;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px;opacity:0;transform:translateY(-10px);pointer-events:none;transition:.25s}.navlinks.open{opacity:1;transform:none;pointer-events:auto}.navlinks a{padding:12px 14px}.navcta{display:none}.menu{display:block}.hero{grid-template-columns:1fr;padding:65px 0 75px;gap:42px}.hero-card{justify-self:start;width:245px}h1{font-size:clamp(44px,13vw,62px)}.hero p{font-size:17px}.about-grid,.auto-grid,.skill-grid{grid-template-columns:1fr}.about-grid{gap:40px}.job{grid-template-columns:1fr;gap:5px}.job:hover{padding-left:0}.auto-head,footer{display:block}.build-count{text-align:left;margin-top:22px}.pipeline{grid-template-columns:repeat(2,1fr)}.contactlinks{align-items:flex-start;margin-top:30px}.contact h2{font-size:46px}.section-title,.about-grid h2,.auto-head h2{font-size:36px}section{padding:75px 0}footer{padding:80px 0}.flow{gap:5px}
 }
-*{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{margin:0;background:var(--bg);color:var(--body);font-family:'Inter',system-ui,sans-serif;font-size:17px;line-height:1.6;}
-h1,h2,h3,.disp{font-family:'Space Grotesk',sans-serif;color:var(--ink);font-weight:600;letter-spacing:-.01em;}
-a{color:var(--link);}
-.wrap{max-width:980px;margin:0 auto;padding:0 28px;}
-.narrow{max-width:700px;}
-nav{position:sticky;top:0;background:rgba(247,248,250,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:10;}
-nav .bar{display:flex;justify-content:space-between;align-items:center;padding:16px 0;}
-nav .brand{font-family:'Space Grotesk';font-weight:600;color:var(--ink);text-decoration:none;font-size:1.05rem;}
-nav .links{display:flex;gap:22px;}
-nav .links a{color:var(--body);text-decoration:none;font-size:.92rem;font-weight:500;}
-nav .links a:hover{color:var(--ink);}
-header.hero{padding:72px 0 60px;border-bottom:1px solid var(--line);}
-.hero-grid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
-.hero .kicker{color:var(--muted);font-weight:500;margin:0 0 8px;font-size:.95rem;}
-.hero h1{font-size:2.5rem;line-height:1.1;margin:0 0 18px;max-width:14ch;}
-.hero p.lede{font-size:1.07rem;max-width:50ch;margin:0 0 26px;}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
-.btn{display:inline-block;padding:11px 20px;border-radius:7px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid transparent;}
-.btn-primary{background:var(--ink);color:#fff;}
-.btn-primary:hover{background:#1e2d54;}
-.btn-ghost{border-color:var(--line);color:var(--ink);background:#fff;}
-.btn-ghost:hover{border-color:var(--ink);}
-.avatar{width:148px;height:148px;border-radius:14px;object-fit:cover;border:1px solid var(--line);}
-section{padding:60px 0;border-bottom:1px solid var(--line);}
-section:last-of-type{border-bottom:none;}
-.section-head{margin-bottom:30px;max-width:60ch;}
-.section-head p.kicker{color:var(--muted);font-size:.9rem;font-weight:500;margin:0 0 6px;}
-.section-head h2{font-size:1.6rem;margin:0 0 8px;}
-.section-head p.sub{color:var(--muted);margin:0;}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
-.skill{background:var(--surface);padding:18px 20px;}
-.skill h4{margin:0 0 4px;font-size:1rem;}
-.skill p{margin:0;font-size:.88rem;color:var(--muted);}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;}
-.tag{background:var(--alt);border:1px solid var(--line);border-radius:6px;padding:6px 11px;font-size:.85rem;color:var(--body);}
-.timeline{display:flex;flex-direction:column;gap:0;}
-.job{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:22px 0;border-top:1px solid var(--line);}
-.job:first-child{border-top:none;}
-.job .yrs{color:var(--muted);font-size:.88rem;padding-top:3px;}
-.job h3{margin:0 0 2px;font-size:1.1rem;}
-.job .co{color:var(--muted);font-size:.92rem;margin-bottom:8px;}
-.job p{margin:0;max-width:64ch;}
-.automation{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:26px 28px;margin-bottom:22px;}
-.automation.flagship{box-shadow:0 0 0 1px var(--ink);}
-.auto-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:6px;}
-.automation h3{font-size:1.15rem;margin:0;}
-.pill{font-size:.76rem;font-weight:600;padding:4px 10px;border-radius:999px;white-space:nowrap;}
-.pill.flagship{background:var(--ink);color:#fff;}
-.pill.tested{background:var(--live-bg);color:var(--live);}
-.automation .goal{color:var(--muted);font-size:.95rem;margin:4px 0 16px;}
-.flow{display:flex;align-items:center;flex-wrap:wrap;gap:0;margin:14px 0;}
-.node{background:var(--alt);border:1px solid var(--line);border-radius:7px;padding:8px 12px;font-size:.85rem;color:var(--ink);font-weight:500;white-space:nowrap;}
-.node.trigger{background:#E9EEFB;border-color:#C3D0F2;}
-.node.wait{background:var(--wait-bg);border-color:#F3CC94;color:#8a5a00;}
-.node.action{background:var(--live-bg);border-color:#BEE4C6;color:#1e7a34;}
-.arrow{color:var(--muted);padding:0 7px;}
-.branch-wrap{display:flex;flex-direction:column;gap:8px;margin-left:6px;padding-left:16px;border-left:2px solid var(--line);}
-.branch-row{display:flex;align-items:center;flex-wrap:wrap;gap:0;}
-.branch-tag{font-size:.77rem;color:var(--muted);font-weight:600;margin-right:8px;min-width:84px;}
-.pipeline{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
-.stage{flex:1 1 120px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 14px 12px;}
-.stage .n{font-size:.78rem;color:var(--muted);display:block;margin-bottom:4px;}
-.stage .label{font-weight:600;color:var(--ink);font-size:.95rem;}
-.stage.won{border-color:var(--live);background:var(--live-bg);}
-.stage.lost{background:var(--alt);color:var(--muted);}
-.stage.lost .label{color:var(--muted);}
-.note{font-size:.87rem;color:var(--muted);background:var(--alt);border-radius:8px;padding:13px 15px;margin-top:16px;}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 24px;cursor:pointer;transition:border-color .15s;}
-.card:hover{border-color:var(--ink);}
-.card .kicker{font-size:.78rem;color:var(--muted);font-weight:600;margin-bottom:8px;}
-.card h3{font-size:1.05rem;margin:0 0 8px;}
-.card p{margin:0;font-size:.9rem;color:var(--muted);}
-.card .cta{margin-top:12px;font-size:.85rem;color:var(--link);font-weight:600;}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(20,33,61,.55);z-index:50;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;}
-.modal-overlay.open{display:flex;}
-.modal{background:#fff;border-radius:12px;max-width:720px;width:100%;padding:34px 36px;position:relative;}
-.modal .close{position:absolute;top:18px;right:20px;background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--muted);}
-.modal h3{margin:0 0 6px;}
-.modal .meta{color:var(--muted);font-size:.88rem;margin-bottom:18px;}
-.stat-row{display:flex;gap:28px;flex-wrap:wrap;margin:18px 0;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-.stat-row div span{display:block;font-family:'Space Grotesk';font-size:1.3rem;color:var(--ink);font-weight:600;}
-.stat-row div small{color:var(--muted);font-size:.8rem;}
-table{width:100%;border-collapse:collapse;font-size:.86rem;margin-top:14px;}
-th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);}
-th{color:var(--muted);font-weight:600;font-size:.8rem;}
-footer{padding:54px 0 70px;}
-footer .contact{display:flex;gap:22px;flex-wrap:wrap;align-items:center;}
-footer .contact a{color:var(--ink);font-weight:600;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px;}
-footer .contact a:hover{border-color:var(--ink);}
-footer .sub{color:var(--muted);font-size:.86rem;margin-top:10px;}
-@media (max-width:760px){
-  header.hero{padding:48px 0 36px;} .hero-grid{grid-template-columns:1fr;gap:26px;} .hero-grid{display:flex;flex-direction:column-reverse;}
-  .hero h1{font-size:1.9rem;max-width:none;} section{padding:44px 0;} .job{grid-template-columns:1fr;gap:4px;}
-  nav .links{gap:14px;font-size:.85rem;}
-}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-
-<nav><div class="wrap bar">
-  <a class="brand" href="#top">Edward Adrias</a>
-  <div class="links">
-    <a href="#about">About</a><a href="#experience">Experience</a><a href="#automation">GHL Portfolio</a><a href="#contact">Contact</a>
-  </div>
+<div class="progress" id="progress"></div>
+<nav id="nav"><div class="wrap navin">
+<a class="logo" href="#top">Edward<span>.</span></a>
+<div class="navlinks" id="navlinks"><a href="#about">About</a><a href="#experience">Experience</a><a href="#automation">Automation</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div>
+<a class="navcta" href="mailto:edward.adrias10@gmail.com">Let's talk ↗</a>
+<button class="menu" id="menu" aria-label="Open menu">☰</button>
 </div></nav>
 
-<header class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="kicker">Customer Support · Operations · CRM Automation</p>
-      <h1>I bring order to messy systems and anxious customers alike</h1>
-      <p class="lede">Over 10 years across customer support, B2B account management, and data curation — plus hands-on, self-taught GoHighLevel automation work. I take something chaotic, whether it's a frustrated caller or an unbuilt CRM, and make it work.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#contact">Let's talk</a>
-        <a class="btn btn-ghost" href="#automation">See my GHL portfolio</a>
-      </div>
-    </div>
-    <img class="avatar" src="https://edwardadrias10-dotcom.github.io/mnt/kimi/upload/photo_2026-03-29_09-47-38.jpg" alt="Edward Adrias">
-  </div>
+<header class="hero wrap" id="top">
+<div class="hero-copy reveal"><div class="eyebrow">CUSTOMER SUPPORT · OPERATIONS · CRM AUTOMATION</div>
+<h1>I bring order to messy systems and anxious customers alike.</h1>
+<p>Over 10 years across customer support, B2B account management, and data curation — plus hands-on, self-taught GoHighLevel automation work.</p>
+<div class="actions"><a class="primary" href="#automation">Explore my work <span>→</span></a><a class="secondary" href="#contact">Contact me</a></div></div>
+<div class="hero-card reveal"><div class="portrait"><img src="https://edwardadrias10-dotcom.github.io/mnt/kimi/upload/photo_2026-03-29_09-47-38.jpg" alt="Edward Adrias"></div><div class="availability"><i></i> Open to opportunities</div><div class="hero-mini"><strong>10+</strong><span>years across support,<br>operations & SaaS</span></div></div>
 </header>
 
-<section id="about">
-  <div class="wrap narrow">
-    <div class="section-head"><p class="kicker">About</p><h2>Bridging human needs and technical systems</h2></div>
-    <p>My work sits at the intersection of people and process. At DISH Network I learned how to turn a frustrated caller into someone who feels heard. At Cognizant, I ran structured outbound campaigns where every call had to follow a defined process and every outcome had to be logged correctly. At RingCentral, I managed a full B2B territory — cold-calling, consultative selling, and staying on as the account manager once a deal closed. At Veeva, I kept a 99%+ accuracy rate curating healthcare data.</p>
-    <p>Most recently, I've been teaching myself GoHighLevel from scratch — not just watching tutorials, but building and testing real CRM pipelines and branching automations until they actually work.</p>
-    <div class="tags">
-      <span class="tag">CRM Systems</span><span class="tag">Salesforce</span><span class="tag">GoHighLevel</span><span class="tag">Veeva Vault</span>
-      <span class="tag">Microsoft Excel</span><span class="tag">Data Entry</span><span class="tag">Email Support</span><span class="tag">Live Chat</span>
-      <span class="tag">Quality Assurance</span><span class="tag">AI Tools</span>
-    </div>
-  </div>
-</section>
+<main>
+<section id="about"><div class="wrap reveal"><div class="section-label">01 / ABOUT</div><div class="about-grid"><h2>Bridging human needs and technical systems.</h2><div><p>My work sits at the intersection of people and process. At DISH Network I learned how to turn a frustrated caller into someone who feels heard. At Cognizant, I ran structured outbound campaigns where every call had to follow a defined process. At RingCentral, I managed a full B2B territory from first contact through ongoing support. At Veeva, I maintained healthcare data with 99%+ accuracy.</p><p>Most recently, I've been teaching myself GoHighLevel from scratch — building and testing real CRM pipelines and branching automations until they actually work.</p><div class="tags"><span class="tag">CRM Systems</span><span class="tag">Salesforce</span><span class="tag">GoHighLevel</span><span class="tag">Veeva Vault</span><span class="tag">Microsoft Excel</span><span class="tag">Data Entry</span><span class="tag">Quality Assurance</span><span class="tag">AI Tools</span></div></div></div></div></section>
 
-<section id="skills">
-  <div class="wrap">
-    <div class="section-head"><p class="kicker">Core Skills</p><h2>What I bring to a team</h2></div>
-    <div class="skills-grid">
-      <div class="skill"><h4>Customer Care</h4><p>Multi-channel support across phone, chat, and email — rebuilding confidence, not just fixing problems.</p></div>
-      <div class="skill"><h4>B2B Account Management</h4><p>Full-cycle territory ownership: cold outreach, consultative selling, and ongoing account support.</p></div>
-      <div class="skill"><h4>Data Curation</h4><p>99%+ accuracy maintaining complex datasets. Details matter, and I catch them.</p></div>
-      <div class="skill"><h4>CRM &amp; Automation</h4><p>Pipeline design and branching workflow automation, self-taught hands-on in GoHighLevel.</p></div>
-      <div class="skill"><h4>Technical Troubleshooting</h4><p>Translating tech-speak into plain English across SaaS and billing systems.</p></div>
-      <div class="skill"><h4>AI &amp; Research</h4><p>Researching and documenting AI adoption trends in business operations.</p></div>
-    </div>
-  </div>
-</section>
+<section id="experience"><div class="wrap reveal"><div class="section-label">02 / EXPERIENCE</div><h2 class="section-title">A career built on patience,<br>precision & problem solving.</h2>
+<div class="timeline">
+<div class="job"><span>2023 — 2025</span><div><h3>Data Curator</h3><b>Veeva Systems</b><p>Managed complex healthcare datasets with 99%+ accuracy. Worked closely with product and engineering teams to improve data quality and squash bugs.</p></div></div>
+<div class="job"><span>2020 — 2022</span><div><h3>Senior Process Executive</h3><b>Cognizant Technology Solutions</b><p>Ran structured outbound campaigns contacting shareholders to guide them through the proxy-voting process, logging every outcome accurately under compliance standards.</p></div></div>
+<div class="job"><span>2015 — 2018</span><div><h3>Account Manager</h3><b>Acquire Asia / RingCentral</b><p>Owned a full B2B territory for a SaaS phone-systems provider — outbound cold-calling, consultative selling, and account management from first contact through ongoing support.</p></div></div>
+<div class="job"><span>2011 — 2014</span><div><h3>Customer Service Expert</h3><b>DISH Network (via SPi Global)</b><p>Multi-channel support handling billing, technical issues, and service concerns — the foundation for every remote role since.</p></div></div>
+</div></div></section>
 
-<section id="experience">
-  <div class="wrap narrow">
-    <div class="section-head"><p class="kicker">Career Journey</p><h2>Where I've been</h2><p class="sub">Every role taught me something new about patience, precision, and the human side of technology.</p></div>
-    <div class="timeline">
-      <div class="job"><div class="yrs">2023 — 2025</div><div><h3>Data Curator</h3><div class="co">Veeva Systems</div><p>Managed complex healthcare datasets with 99%+ accuracy. Worked closely with product and engineering teams to improve data quality and squash bugs.</p></div></div>
-      <div class="job"><div class="yrs">2020 — 2022</div><div><h3>Senior Process Executive</h3><div class="co">Cognizant Technology Solutions</div><p>Ran structured outbound campaigns contacting shareholders to guide them through the proxy-voting process, logging every outcome accurately under compliance standards.</p></div></div>
-      <div class="job"><div class="yrs">2015 — 2018</div><div><h3>Account Manager</h3><div class="co">Acquire Asia / RingCentral</div><p>Owned a full B2B territory for a SaaS phone-systems provider — outbound cold-calling, consultative selling, and account management from first contact through ongoing support.</p></div></div>
-      <div class="job"><div class="yrs">2011 — 2014</div><div><h3>Customer Service Expert</h3><div class="co">DISH Network (via SPi Global)</div><p>Multi-channel support handling billing, technical issues, and service concerns — the foundation for every remote role since.</p></div></div>
-    </div>
-  </div>
-</section>
+<section id="automation"><div class="wrap reveal"><div class="section-label">03 / CRM AUTOMATION</div><div class="auto-head"><div><h2>Systems that keep moving when people get busy.</h2><p>Self-directed GoHighLevel practice work — a mock business I built, configured, and tested myself to learn the platform properly, not client work.</p></div><div class="build-count">03<small>featured builds</small></div></div>
+<div class="auto-grid">
+<article class="auto-card featured"><button class="expand" aria-label="Expand">+</button><div class="badge">FLAGSHIP BUILD</div><h3>Full Lead Lifecycle</h3><p>Escalating, multi-checkpoint follow-up so no lead goes quiet without a next step.</p><div class="flow"><span class="node">New Lead tag</span><b class="arrow">→</b><span class="node">Welcome email</span><b class="arrow">→</b><span class="node">Wait 1 hr</span><b class="arrow">→</b><span class="node">Branch</span></div><div class="detail"><div class="branches"><div><em>Replied</em> → Urgent call task</div><div><em>No reply</em> → SMS nudge → wait 2 hr</div></div></div></article>
+<article class="auto-card"><button class="expand" aria-label="Expand">+</button><div class="badge tested">TESTED LIVE</div><h3>Lead Engagement Speed Tiers</h3><p>Segments leads by response speed — a fast reply gets an immediate call.</p><div class="detail"><div class="branchlist"><div><em>Replied fast</em><strong>Immediate call</strong></div><div><em>Replied</em><strong>Next-day call</strong></div><div><em>No reply</em><strong>Re-engagement email</strong></div></div></div></article>
+<article class="auto-card"><button class="expand" aria-label="Expand">+</button><div class="badge tested">TESTED LIVE</div><h3>Lost Lead Cleanup</h3><p>A safety net automation that keeps pipeline data honest.</p><div class="detail"><div class="singleflow"><span class="node">Tag: Not Interested</span><b class="arrow">→</b><span class="node">Opportunity → Lost</span></div></div></article>
+</div>
+<div class="pipeline-wrap"><div class="pipeline-title">CUSTOM 6-STAGE PIPELINE</div><div class="pipeline" id="pipeline"><div class="stage"><span class="n">01</span><span class="label">New Lead</span></div><div class="stage"><span class="n">02</span><span class="label">Contacted</span></div><div class="stage"><span class="n">03</span><span class="label">Qualified</span></div><div class="stage"><span class="n">04</span><span class="label">Proposal Sent</span></div><div class="stage won"><span class="n">05</span><span class="label">Won</span></div><div class="stage lost"><span class="n">06</span><span class="label">Lost</span></div></div><div class="note">These are diagrams of the logic I built, not live screenshots of the account — I'm happy to walk through the actual GHL dashboard on a call.</div></div>
+</div></section>
 
-<section id="automation">
-  <div class="wrap">
-    <div class="section-head"><p class="kicker">Portfolio · GoHighLevel, Self-Taught</p><h2>CRM &amp; automation build log</h2><p class="sub">Self-directed practice work — a mock business I built, configured, and tested myself to learn GoHighLevel properly, not client work.</p></div>
+<section id="skills" class="skills"><div class="wrap reveal"><div class="section-label">04 / WHAT I BRING</div><h2 class="section-title">The useful combination.</h2><div class="skill-grid">
+<div><strong>Customer Care</strong><p>Multi-channel support across phone, chat and email — rebuilding confidence, not just fixing problems.</p></div>
+<div><strong>B2B Account Management</strong><p>Full-cycle territory ownership: cold outreach, consultative selling and ongoing account support.</p></div>
+<div><strong>Data Curation</strong><p>99%+ accuracy maintaining complex datasets. Details matter, and I catch them.</p></div>
+<div><strong>CRM & Automation</strong><p>Pipeline design and branching workflow automation, self-taught hands-on in GoHighLevel.</p></div>
+<div><strong>Technical Troubleshooting</strong><p>Translating tech-speak into plain English across SaaS and billing systems.</p></div>
+<div><strong>AI & Research</strong><p>Researching and documenting AI adoption trends in business operations.</p></div>
+</div></div></section>
+</main>
 
-    <div class="automation flagship">
-      <div class="auto-top"><h3>Full Lead Lifecycle</h3><span class="pill flagship">Flagship build</span></div>
-      <p class="goal">Escalating, multi-checkpoint follow-up so no lead goes quiet without a next step being created automatically.</p>
-      <div class="flow">
-        <div class="node trigger">New Lead tag added</div><span class="arrow">→</span><div class="node action">Welcome email</div><span class="arrow">→</span><div class="node wait">Wait 1 hr</div>
-      </div>
-      <div class="branch-wrap">
-        <div class="branch-row"><span class="branch-tag">Replied</span><div class="node action">Urgent call task</div></div>
-        <div class="branch-row"><span class="branch-tag">No reply</span><div class="node wait">SMS nudge → wait 2 hr</div></div>
-      </div>
-    </div>
-
-    <div class="automation">
-      <div class="auto-top"><h3>Lead Engagement Speed Tiers</h3><span class="pill tested">Tested live</span></div>
-      <p class="goal">Segments leads by response speed — a fast reply gets an immediate call instead of waiting in the same queue as a cold one.</p>
-      <div class="branch-wrap" style="margin-left:0;border-left:none;padding-left:0;">
-        <div class="branch-row"><span class="branch-tag">Replied fast</span><div class="node action">Immediate call</div></div>
-        <div class="branch-row"><span class="branch-tag">Replied</span><div class="node action">Next-day call</div></div>
-        <div class="branch-row"><span class="branch-tag">No reply</span><div class="node wait">Re-engagement email</div></div>
-      </div>
-    </div>
-
-    <div class="automation">
-      <div class="auto-top"><h3>Lost Lead Cleanup</h3><span class="pill tested">Tested live</span></div>
-      <p class="goal">A safety net automation — tagging a contact "Not Interested" always moves their opportunity to Lost, keeping pipeline data honest.</p>
-      <div class="flow"><div class="node trigger">Tag: Not Interested</div><span class="arrow">→</span><div class="node action">Opportunity → Lost</div></div>
-    </div>
-
-    <p class="section-head sub" style="margin-top:26px;">Built with a 6-stage custom pipeline (New Lead → Contacted → Qualified → Proposal Sent → Won → Lost) and a lead-capture funnel wired to feed straight into these automations.</p>
-    <div class="pipeline">
-      <div class="stage"><span class="n">1</span><span class="label">New Lead</span></div>
-      <div class="stage"><span class="n">2</span><span class="label">Contacted</span></div>
-      <div class="stage"><span class="n">3</span><span class="label">Qualified</span></div>
-      <div class="stage"><span class="n">4</span><span class="label">Proposal Sent</span></div>
-      <div class="stage won"><span class="n">5</span><span class="label">Won</span></div>
-      <div class="stage lost"><span class="n">6</span><span class="label">Lost</span></div>
-    </div>
-    <div class="note">Note: these are diagrams of the logic I built, not live screenshots of the account — I'm happy to walk through the actual GHL dashboard on a call.</div>
-  </div>
-</section>
-
-<footer id="contact">
-  <div class="wrap">
-    <div class="section-head"><p class="kicker">Get In Touch</p><h2>Let's connect</h2></div>
-    <div class="contact">
-      <a href="mailto:edward.adrias10@gmail.com">📧 edward.adrias10@gmail.com</a>
-      <a href="https://www.linkedin.com/in/edward-adrias-0ba9b023a">💼 LinkedIn</a>
-      <a href="tel:+639555417853">📱 +63 955 541 7853</a>
-    </div>
-    <p class="sub">📍 Zamboanga City, Philippines · © 2026 Edward Adrias</p>
-  </div>
-</footer>
-
-</body>
-</html>
+<footer id="contact" class="wrap"><div class="contact reveal"><div class="section-label">05 / CONTACT</div><h2>Have a system that needs untangling?</h2><p>Let's talk about how I can help.</p></div><div class="contactlinks reveal"><a href="mailto:edward.adrias10@gmail.com">edward.adrias10@gmail.com ↗</a><a href="https://www.linkedin.com/in/edward-adrias-0ba9b023a" target="_blank" rel="noopener">LinkedIn ↗</a><a href="tel:+639555417853">+63 955 541 7853</a><span>📍 Zamboanga City, Philippines · © 2026</span></div></footer>
+<button class="to-top" id="topBtn" aria-label="Back to top">↑</button>
+<script>
+const nav=document.getElementById('nav'),menu=document.getElementById('menu'),links=document.getElementById('navlinks'),topBtn=document.getElementById('topBtn'),progress=document.getElementById('progress');
+menu.addEventListener('click',()=>{links.classList.toggle('open');menu.textContent=links.classList.contains('open')?'×':'☰'});
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');menu.textContent='☰'}));
+window.addEventListener('scroll',()=>{
+ nav.classList.toggle('scrolled',scrollY>20);topBtn.classList.toggle('show',scrollY>500);
+ const h=document.documentElement.scrollHeight-innerHeight;progress.style.width=(scrollY/h*100)+'%';
+ document.querySelectorAll('section[id],footer[id]').forEach(s=>{const r=s.getBoundingClientRect();const a=links.querySelector('a[href="#'+s.id+'"]');if(a)a.classList.toggle('active',r.top<180&&r.bottom>180)})
+},{passive:true});
+topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
+document.querySelectorAll('.reveal,.pipeline').forEach(e=>observer.observe(e));
+document.querySelectorAll('.auto-card').forEach(card=>{card.addEventListener('click',e=>{if(e.target.classList.contains('expand')||e.target.closest('.auto-card'))card.classList.toggle('open')})});
+</script>
+</body></html>
